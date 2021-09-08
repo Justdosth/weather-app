@@ -1,0 +1,174 @@
+body {
+  text-align: center;
+  font-family: "Texturina", serif;
+  font-style: italic, bold;
+}
+.textContainer {
+  border: 1px solid #e7e0c9;
+  margin: -110px auto;
+  border-radius: 5px;
+  max-width: 70%;
+  background-color: #eeeeee;
+}
+.moonIcon {
+  color: #4a47a3;
+  background-color: #eeeeee;
+  font-size: 110px;
+  border-top: 2px solid #e7e0c9;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 150px;
+  padding: 35px;
+  margin: 50px auto;
+  position: relative;
+  top: 30px;
+  left: auto;
+}
+.moonIcon:hover {
+  color: #a7c5eb;
+}
+
+.searchTxt {
+  border-color: #e7e0c9;
+  border-radius: 4px 0 0 4px;
+}
+.form-control:focus {
+  box-shadow: 0 0 0 0.12rem rgb(13 110 253 / 25%);
+}
+.searchBtn {
+  border-radius: 0 4px 4px 0;
+}
+.searchRow {
+  justify-content: center;
+  margin: 120px 0 50px;
+}
+.temperatureTxt {
+  font-size: 16px;
+  color: #cbaf87;
+  font-family: "Style Script", cursive;
+  text-align: center;
+}
+.currentDate {
+  padding-right: 20px;
+}
+#city {
+  font-size: 35px;
+  padding-right: 20px;
+}
+
+.currentTemp1 {
+  font-size: 48px;
+}
+#farenheit {
+  font-size: 10px;
+  text-decoration: none;
+  color: #cbaf87;
+}
+#farenheit:hover {
+  color: white;
+}
+.detailIcon {
+  font-size: 30px;
+  color: #4a47a3;
+  margin: 7px 0;
+}
+.wind,
+.humidity {
+  margin: 18px 0;
+  text-align: left;
+  color: #cbaf87;
+  font-size: 15px;
+}
+.currentPlace {
+  background-color: #e7e0c9;
+  border-color: #e7e0c9;
+  color: #ffff;
+}
+.currentPlace:hover {
+  background-color: #4a47a3;
+  border-color: #4a47a3;
+}
+.sunEmoji {
+  color: #e7e0c9;
+  background-color: transparent;
+  font-size: 100px;
+  border: thick double #e7e0c9;
+
+  border-radius: 150px;
+  padding: 20px;
+  margin: 35px auto;
+  position: relative;
+}
+.btn-primary {
+  color: white;
+  background-color: #a7c5eb;
+  border-color: #a7c5eb;
+}
+.btn-primary:hover {
+  color: white;
+  background-color: #4a47a3;
+  border-color: #4a47a3;
+}
+.btn-primary:focus {
+  color: white;
+  background-color: #4a47a3;
+  border-color: #4a47a3;
+}
+.weekDay {
+  color: #a7c5eb;
+  padding: 1px;
+  position: relative;
+  font-size: 18px;
+}
+.dayMargin {
+  margin: 10px 0;
+}
+.weekDayLine {
+  border-left: 1px solid white;
+}
+.dayTemperature {
+  font-family: "Style Script", cursive;
+}
+/*
+.day1 {
+  top: 50px;
+  right: 150px;
+  bottom: 100px;
+  left: 0;
+}
+.day2 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.day3 {
+  top: -50px;
+  right: 150px;
+  bottom: 200px;
+  left: -30px;
+}
+.day4 {
+  top: -85px;
+  right: 0;
+  bottom: 0;
+  left: -90px;
+}
+.day5 {
+  top: -50px;
+  right: 0;
+  bottom: 0;
+  left: 50px;
+}
+.day6 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.day7 {
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+*/
