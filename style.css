@@ -128,6 +128,18 @@ body {
 .dayTemperature {
   font-family: "Style Script", cursive;
 }
+.source-code{
+    color: #cbaf87;
+    margin: 10px;
+}
+.git-link{
+    text-decoration:none;
+    color: #a7c5eb;
+
+}
+.git-link:hover{
+    color: #4a47a3;
+}
 /*
 .day1 {
   top: 50px;
