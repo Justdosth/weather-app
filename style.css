@@ -5,10 +5,11 @@ body {
 }
 .textContainer {
   border: 1px solid #e7e0c9;
-  margin: -110px auto;
-  border-radius: 5px;
-  max-width: 70%;
   background-color: #eeeeee;
+  max-width: 600px;
+  margin: -80px auto;
+  border-radius: 5px;
+  padding: 15px;
 }
 .moonIcon {
   color: #4a47a3;
@@ -18,7 +19,7 @@ body {
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.3);
   border-radius: 150px;
   padding: 35px;
-  margin: 50px auto;
+  margin: 20px auto;
   position: relative;
   top: 30px;
   left: auto;
@@ -45,18 +46,17 @@ body {
   font-size: 16px;
   color: #cbaf87;
   font-family: "Style Script", cursive;
-  text-align: center;
+  text-align: left;
+  padding-left: 100px;
 }
-.currentDate {
-  padding-right: 20px;
-}
+
 #city {
   font-size: 35px;
-  padding-right: 20px;
 }
 
 .currentTemp1 {
-  font-size: 48px;
+  font-size: 70px;
+  line-height: 1;
 }
 #farenheit {
   font-size: 10px;
@@ -73,10 +73,12 @@ body {
 }
 .wind,
 .humidity {
-  margin: 18px 0;
+  margin: 18px 4px;
   text-align: left;
   color: #cbaf87;
   font-size: 15px;
+  font-family: "Texturina", serif;
+  font-weight: 400;
 }
 .currentPlace {
   background-color: #e7e0c9;
@@ -118,6 +120,7 @@ body {
   padding: 1px;
   position: relative;
   font-size: 18px;
+  margin: 5px;
 }
 .dayMargin {
   margin: 10px 0;
@@ -128,17 +131,16 @@ body {
 .dayTemperature {
   font-family: "Style Script", cursive;
 }
-.source-code{
-    color: #cbaf87;
-    margin: 10px;
+.source-code {
+  color: #cbaf87;
+  margin: 10px;
 }
-.git-link{
-    text-decoration:none;
-    color: #a7c5eb;
-
+.git-link {
+  text-decoration: none;
+  color: #a7c5eb;
 }
-.git-link:hover{
-    color: #4a47a3;
+.git-link:hover {
+  color: #4a47a3;
 }
 /*
 .day1 {

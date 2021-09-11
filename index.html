@@ -67,27 +67,37 @@
         <div class="row justify-content-md-center currentTemp">
           <div class="col-6 temperatureTxt">
             <div class="currentTemp1">
-              <span id="currentTemp">30</span>
-              º<span id="celsius">C</span><a href="#" id="farenheit">F</a>
+              <span id="currentTemp">30</span>º
+              <span id="celsius">C</span>
+              <a href="#" id="farenheit">F</a>
             </div>
             <div id="city">Iran</div>
             <div class="currentDate">
-              <span id="currentDay">Tuesday</span
-              ><span id="currentTime"
-                ><span id="hour">16</span>:<span id="minute">00</span></span
-              >
+              <span id="currentDay">Tuesday</span>
+              <span id="currentTime">
+                <span id="hour">16</span>
+                :<span id="minute">00</span>
+              </span>
             </div>
           </div>
 
-          <div class="col col-lg-1">
-            <i class="fas fa-wind detailIcon"></i>
+          <div class="col-6">
+            <i class="fas fa-wind detailIcon">
+              <span class="wind">
+                Wind:
+                <span id="windSpeed">0</span>
+                km/h
+              </span>
+            </i>
             <div class="w-100"></div>
-            <i class="fas fa-smog detailIcon"></i>
-          </div>
-          <div class="col col-lg-2">
-            <div class="wind">Wind: <span id="windSpeed">0</span> km/h</div>
-            <div class="w-100"></div>
-            <div class="humidity">Humidity: <span id="humidity">0</span>%</div>
+
+            <i class="fas fa-smog detailIcon">
+              <span class="humidity">
+                Humidity:
+                <span id="humidity">0</span>
+                %
+              </span>
+            </i>
           </div>
         </div>
         <div class="row d-flex align-items-center">
@@ -105,7 +115,7 @@
           <div class="col">
             <i class="fas fa-sun sunEmoji"></i>
           </div>
-          <div class="col weekDay dayMargin">
+          <div class="col weekDay">
             <div class="dayMargin">Tue</div>
             <span class="material-icons dayMargin"> wb_sunny </span>
             <div class="dayTemperature dayMargin">30ºC</div>
@@ -116,7 +126,12 @@
             <div class="dayTemperature dayMargin">24ºC</div>
           </div>
         </div>
-        <p class="source-code"><a class="git-link" href="https://github.com/Justdosth/weather-app">Source-Code</a> by Fatemeh Taher</p>
+        <p class="source-code">
+          <a class="git-link" href="https://github.com/Justdosth/weather-app"
+            >Source-Code</a
+          >
+          by Fatemeh Taher
+        </p>
       </div>
     </div>
 
