@@ -1,51 +1,97 @@
-/*
-let weather = {
-  paris: {
-    temp: 19.7,
-    humidity: 80,
-  },
-  tokyo: {
-    temp: 17.3,
-    humidity: 50,
-  },
-  lisbon: {
-    temp: 30.2,
-    humidity: 20,
-  },
-  "san francisco": {
-    temp: 20.9,
-    humidity: 100,
-  },
-  moscow: {
-    temp: -5,
-    humidity: 20,
-  },
-};
-let city = prompt("What city?");
-city = city.trim();
-city1 = city.toLowerCase();
-
-let index = 0;
-for (let prop in weather) {
-  if (prop === city) {
-    let farenheit = Math.round((weather[prop].temp * 9) / 5 + 32);
-    alert(
-      `It is currently ${Math.round(
-        weather[prop].temp
-      )}°C (${farenheit}°F) in ${prop} with a humidity of ${
-        weather[prop].humidity
-      }%`
-    );
-  } else {
-    if (index + 1 === Object.keys(weather).length) {
-      alert(
-        `Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+${city}`
-      );
-    }
-    index++;
+function changeIcon(icon, num) {
+  let dayIcon = document.querySelector(`#next-day${num}`);
+  dayIcon.innerHTML = "";
+  console.log(icon);
+  console.log(dayIcon.innerHTML);
+  switch (icon) {
+    case "01d":
+    case "01n":
+      dayIcon.innerHTML = `
+              <div class="icon sunny">
+                <div class="sun">
+                  <div class="rays"></div>
+                </div>
+              </div>
+              `;
+      break;
+    case "02d":
+    case "02n":
+    case "03d":
+    case "03n":
+    case "04d":
+    case "04n":
+    case "50d":
+    case "50n":
+      dayIcon.innerHTML = `
+        <div class="icon cloudy">
+          <div class="cloud"></div>
+          <div class="cloud"></div>
+        </div>
+      `;
+      break;
+    case "09d":
+    case "09n":
+    case "10d":
+    case "10n":
+      dayIcon.innerHTML = `
+        <div class="icon rainy">
+          <div class="cloud"></div>
+          <div class="rain"></div>
+        </div>
+      `;
+      break;
+    case "11d":
+    case "11n":
+      dayIcon.innerHTML = `
+            <div class="icon thunder-storm">
+              <div class="cloud"></div>
+              <div class="lightning">
+                <div class="bolt"></div>
+                <div class="bolt"></div>
+              </div>
+            </div>
+          `;
+      break;
+    case "13d":
+    case "13n":
+      dayIcon.innerHTML = `
+                <div class="icon flurries">
+                  <div class="cloud"></div>
+                  <div class="snow">
+                    <div class="flake"></div>
+                    <div class="flake"></div>
+                  </div>
+                </div>
+              `;
+      break;
   }
+  console.log(dayIcon.innerHTML);
 }
-*/
+function formatDay(response) {
+  let timestamp = response.data.dt * 1000;
+  let date = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wendseday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  document.querySelector("#currentDay").innerHTML = `${day}  `;
+  document.querySelector("#minute").innerHTML = minutes;
+  document.querySelector("#hour").innerHTML = hours;
+}
 function changeCity(response) {
   let city = document.querySelector("#city");
   let searchedCity = document.querySelector("#cityName");
@@ -59,6 +105,8 @@ function changeCity(response) {
   if (searchedCity.value === "") {
     city.innerHTML = response.data.sys.country;
   }
+
+  changeIcon(response.data.weather[0].icon, 0);
 }
 function changeMetric(event) {
   event.preventDefault();
@@ -108,28 +156,6 @@ function changeToCurrent(event) {
 
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-let date = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wendseday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[date.getDay()];
-let hours = date.getHours();
-let minutes = date.getMinutes();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-document.querySelector("#currentDay").innerHTML = `${day}  `;
-document.querySelector("#minute").innerHTML = minutes;
-document.querySelector("#hour").innerHTML = hours;
 
 //let search = document.querySelector("#search-form");
 //search.addEventListener("submit", changeCity);
@@ -145,3 +171,10 @@ let searchBtn = document.querySelector("#searchButton");
 searchBtn.addEventListener("click", changeTemp);
 let currentPlace = document.querySelector("#currentPlace");
 currentPlace.addEventListener("click", changeToCurrent);
+let apiUrl0 = `https://api.openweathermap.org/data/2.5/weather?q=Iran&appid=${apiKey}&units=${unit}`;
+axios.get(apiUrl0).then(formatDay);
+
+let sunnyIcon = document.querySelector("#sunny-icon").remove();
+//let cloudIcon = document.querySelector("#cloud-icon").remove();
+let currentDayIcon = document.querySelector(".current-day-icon");
+currentDayIcon.innerHTML = "^_^";

@@ -67,16 +67,15 @@
         <div class="row justify-content-md-center currentTemp">
           <div class="col-6 temperatureTxt">
             <div class="currentTemp1">
-              <span id="currentTemp">30</span>º
+              <span id="currentTemp"></span>º
               <span id="celsius">C</span>
               <a href="#" id="farenheit">F</a>
             </div>
-            <div id="city">Iran</div>
+            <div id="city"></div>
             <div class="currentDate">
-              <span id="currentDay">Tuesday</span>
+              <span id="currentDay"></span>
               <span id="currentTime">
-                <span id="hour">16</span>
-                :<span id="minute">00</span>
+                <span id="hour"></span>:<span id="minute"></span>
               </span>
             </div>
           </div>
@@ -85,7 +84,7 @@
             <i class="fas fa-wind detailIcon">
               <span class="wind">
                 Wind:
-                <span id="windSpeed">0</span>
+                <span id="windSpeed"></span>
                 km/h
               </span>
             </i>
@@ -94,7 +93,7 @@
             <i class="fas fa-smog detailIcon">
               <span class="humidity">
                 Humidity:
-                <span id="humidity">0</span>
+                <span id="humidity"></span>
                 %
               </span>
             </i>
@@ -102,27 +101,54 @@
         </div>
         <div class="row d-flex align-items-center">
           <div class="col weekDay">
-            <div class="dayMargin">Sun</div>
+            <div id="next-day1" class="dayMargin">
+              Sun
+              <div id="sunny-icon" class="icon sunny">
+                <div class="sun">
+                  <div class="rays"></div>
+                </div>
+              </div>
+            </div>
 
-            <i class="fas fa-cloud-showers-heavy dayMargin"></i>
             <div class="dayTemperature dayMargin">22ºC</div>
           </div>
           <div class="col weekDay weekDayLine">
-            <div class="dayMargin">Mon</div>
-            <span class="material-icons dayMargin"> wb_cloudy </span>
+            <div d="next-day2" class="dayMargin">Mon</div>
+            <div class="icon cloudy">
+              <div class="cloud"></div>
+              <div class="cloud"></div>
+            </div>
             <div class="dayTemperature dayMargin">26ºC</div>
           </div>
           <div class="col">
-            <i class="fas fa-sun sunEmoji"></i>
+            <div id="next-day0" class="sunEmoji current-day-icon">
+              <div class="icon sunny">
+                <div class="sun">
+                  <div class="rays"></div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col weekDay">
             <div class="dayMargin">Tue</div>
-            <span class="material-icons dayMargin"> wb_sunny </span>
+            <div class="icon flurries">
+              <div class="cloud"></div>
+              <div class="snow">
+                <div class="flake"></div>
+                <div class="flake"></div>
+              </div>
+            </div>
             <div class="dayTemperature dayMargin">30ºC</div>
           </div>
           <div class="col weekDay weekDayLine">
             <div class="dayMargin">Wed</div>
-            <i class="fas fa-cloud-sun dayMargin"></i>
+            <div class="icon sun-shower">
+              <div class="cloud"></div>
+              <div class="sun">
+                <div class="rays"></div>
+              </div>
+              <div class="rain"></div>
+            </div>
             <div class="dayTemperature dayMargin">24ºC</div>
           </div>
         </div>
