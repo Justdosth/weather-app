@@ -153,6 +153,8 @@ function changeToCurrent(event) {
   event.preventDefault();
 
   navigator.geolocation.getCurrentPosition(showPosition);
+  let searchInput = document.querySelector("#cityName");
+  searchInput.value = null;
 }
 
 //let search = document.querySelector("#search-form");
