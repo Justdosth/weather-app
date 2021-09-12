@@ -1,8 +1,7 @@
 function changeIcon(icon, num) {
   let dayIcon = document.querySelector(`#next-day${num}`);
   dayIcon.innerHTML = "";
-  console.log(icon);
-  console.log(dayIcon.innerHTML);
+
   switch (icon) {
     case "01d":
     case "01n":
@@ -65,7 +64,6 @@ function changeIcon(icon, num) {
               `;
       break;
   }
-  console.log(dayIcon.innerHTML);
 }
 function formatDay(response) {
   let timestamp = response.data.dt * 1000;
