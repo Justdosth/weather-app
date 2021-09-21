@@ -1,5 +1,5 @@
-function changeIcon(icon, num) {
-  let dayIcon = document.querySelector(`#next-day${num}`);
+/*function changeIcon1(icon) {
+  let dayIcon = document.querySelector(`#next-day`);
   dayIcon.innerHTML = "";
 
   switch (icon) {
@@ -65,6 +65,77 @@ function changeIcon(icon, num) {
       break;
   }
 }
+*/
+function changeIcon(icon) {
+  switch (icon) {
+    case "01d":
+    case "01n":
+      return `
+              <div class="icon sunny">
+                <div class="sun">
+                  <div class="rays"></div>
+                </div>
+              </div>
+              `;
+      break;
+    case "02d":
+    case "02n":
+    case "03d":
+    case "03n":
+    case "04d":
+    case "04n":
+    case "50d":
+    case "50n":
+      return `
+        <div class="icon cloudy">
+          <div class="cloud"></div>
+          <div class="cloud"></div>
+        </div>
+      `;
+      break;
+    case "09d":
+    case "09n":
+    case "10d":
+    case "10n":
+      return `
+        <div class="icon rainy">
+          <div class="cloud"></div>
+          <div class="rain"></div>
+        </div>
+      `;
+      break;
+    case "11d":
+    case "11n":
+      return `
+            <div class="icon thunder-storm">
+              <div class="cloud"></div>
+              <div class="lightning">
+                <div class="bolt"></div>
+                <div class="bolt"></div>
+              </div>
+            </div>
+          `;
+      break;
+    case "13d":
+    case "13n":
+      return `
+                <div class="icon flurries">
+                  <div class="cloud"></div>
+                  <div class="snow">
+                    <div class="flake"></div>
+                    <div class="flake"></div>
+                  </div>
+                </div>
+              `;
+      break;
+  }
+}
+function formatDate(timestamp) {
+  let ts = timestamp * 1000;
+  let date = new Date(ts);
+  let days = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
 function formatDay(response) {
   let timestamp = response.data.dt * 1000;
   let date = new Date(timestamp);
@@ -104,7 +175,7 @@ function changeCity(response) {
     city.innerHTML = response.data.sys.country;
   }
 
-  changeIcon(response.data.weather[0].icon, 0);
+  window.currentIcon = changeIcon(response.data.weather[0].icon);
 }
 function changeMetric(event) {
   event.preventDefault();
@@ -128,6 +199,41 @@ function show(response) {
   changeCity(response);
   changeWindSpeed(response);
   changeHumidity(response);
+
+  let forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&appid=${apiKey}&units=${unit}`;
+  axios.get(forecastUrl).then(forecast);
+}
+function forecast(response) {
+  let days = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row d-flex align-items-center">`;
+  days.forEach(function (day, index) {
+    if (index == 2) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+            <div class="current-day-icon">
+              ${currentIcon}
+            </div>
+          </div>`;
+    }
+    if (index < 4) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col weekDay">
+            <div class="dayMargin">
+              ${formatDate(day.dt)}
+              </div>
+              ${changeIcon(day.weather[0].icon)}
+            <div class="dayTemperature dayMargin">
+            <span>${Math.round(day.temp.day)}</span>
+            ºC </div>
+          </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(days);
 }
 function changeWindSpeed(response) {
   let windSpeed = document.querySelector("#windSpeed");
@@ -174,7 +280,18 @@ currentPlace.addEventListener("click", changeToCurrent);
 let apiUrl0 = `https://api.openweathermap.org/data/2.5/weather?q=Iran&appid=${apiKey}&units=${unit}`;
 axios.get(apiUrl0).then(formatDay);
 
-let sunnyIcon = document.querySelector("#sunny-icon").remove();
+/*
+//let sunnyIcon = document.querySelector("#sunny-icon").remove();
 //let cloudIcon = document.querySelector("#cloud-icon").remove();
-let currentDayIcon = document.querySelector(".current-day-icon");
-currentDayIcon.innerHTML = "^_^";
+//let currentDayIcon = document.querySelector(".current-day-icon");
+//currentDayIcon.innerHTML = "^_^";
+<div class="col-3">
+            <div id="next-day" class="sunEmoji current-day-icon">
+              <div class="icon sunny">
+                <div class="sun">
+                  <div class="rays"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+*/
